@@ -1,0 +1,4 @@
+{
+    "listId": "$input.params('listId')",
+    "item": $input.json('$.item')
+}

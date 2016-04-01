@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<title>Serverless Shopping List Site</title>
+</head>
+
+<body ng-app="shoppingListApp" class="ng-scope" ng-controller="NewShoppingListController">
+<div class="container"> 
+
+<h1 align="center">Welcome to the Serverless Shopping List</h1>
+
+<p  align="center">
+	Enter your list ID:  
+	<br />
+	<input type="text" size="25" ng-model="shoppingListRequest.listId" />
+	<br />
+	<br />
+	Enter an item:
+	<br />
+	<input type="text" size="40" ng-model="shoppingListRequest.item" > </textarea>
+	<br />
+	<button type="button" ng-click="addItem(shoppingListRequest)">Add Item</button>
+	<br />
+	<br />
+	<table border="1" style="width:25%">
+		<tr>
+			<td><b>Your Shopping List</b></td>
+		</tr>
+		<tbody ng:repeat="item in getShoppingListResponse.items track by $index">
+	        <tr> 
+	        	<td style="text-align:center">{{item}}</td>
+	    	</tr>
+	    </tbody>
+	</table>
+	<button type="button" ng-click="getShoppingList(shoppingListRequest.listId)">Get My Shopping List</button> 
+
+</p>
+
+<script>
+	angular.module('shoppingListApp', [])
+      .controller('NewShoppingListController', ['$scope', '$location', '$http', function($scope, $location, $http) {
+    	
+    	var endpoint = "https://zby27dzz05.execute-api.us-east-1.amazonaws.com/dev";
+
+    	$scope.addItem = function(shoppingListRequest) {
+    		var listItem = { "item": shoppingListRequest.item }
+    		$http.post(endpoint + "/lists/" + shoppingListRequest.listId + "/items", listItem);
+    	}
+
+    	$scope.getShoppingList = function(listId) {
+    		$http.get(endpoint + "/lists/" + listId).success(function(data) {
+    			$scope.getShoppingListResponse = data;
+    		});
+    	}
+
+    }]);
+
+</script>
+</div>  
+</body>
+
+</html>
