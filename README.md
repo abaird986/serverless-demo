@@ -4,7 +4,7 @@ This project can be used to create the Lambda functions necessary for running th
 
 # Recreating the Demo
 ## 1. Create a DynamoDB table called `ShoppingLists`.
-This table will be where all of the shopping lists are persisted. The only configuration you are required to set while creating the table is to define the hash key 'listId' of type string.  All other values may remain default.
+This table will be where all of the shopping lists are persisted. The only configuration you are required to set while creating the table is to define the hash key `listId` of type string.  All other values may remain default.
 
 ##2. Create an IAM Role to be used by your Lambda functions.
 Best practices dictate that you should create separate IAM Roles for each one of your Lambda functions.  But for this demo, you can use the same IAM Role for both Lambda functions used by the app.  Here is a sample policy that can be used:
