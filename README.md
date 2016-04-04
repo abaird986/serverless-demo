@@ -3,7 +3,7 @@
 This project can be used to create the Lambda functions necessary for running the serverless shopping list demo application, as shown in the AWS Webinar: Getting Started with Serverless Architectures.
 
 # Recreating the Demo
-## 1. Create a DynamoDB table called 'ShoppingLists'.
+## 1. Create a DynamoDB table called `ShoppingLists`.
 This table will be where all of the shopping lists are persisted. The only configuration you are required to set while creating the table is to define the hash key 'listId' of type string.  All other values may remain default.
 
 ##2. Create an IAM Role to be used by your Lambda functions.
@@ -55,16 +55,16 @@ Included is a build.gradle file that can be used to directly build the source co
 Create the necessary Lambda functions to run the application, pointing to the S3 object location where you've uploaded the build .zip to S3.
 #### GetShoppingList
 The handler for this Lambda function from the provided source code is:
-main.java.shoppinglist.GetShoppingListHandler::getShoppingList
+`main.java.shoppinglist.GetShoppingListHandler::getShoppingList`
 #### AddItem
 The handler for this Lambda function is:
-main.java.shoppinglist.AddItemHandler::addItem
+`main.java.shoppinglist.AddItemHandler::addItem`
 
 ## Create new API
 The methods/resources you'll need to create methods on are:
-'GET /lists/{listId}' - integrates with GetShoppingList LambdaFunction.
+`GET /lists/{listId}` - integrates with GetShoppingList LambdaFunction.
 and
-'POST /lists/{listId}/items' - integrates with AddItem above.
+`POST /lists/{listId}/items` - integrates with AddItem above.
 
 Each of the above API methods will require a mapping template, see \config directory for the mapping templates you can use - configured via 'Integration Request' console inside the Amazon API Gateway console.
 
