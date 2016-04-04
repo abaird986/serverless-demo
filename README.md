@@ -26,16 +26,6 @@ Best practices dictate that you should create separate IAM Roles for each one of
                 ]
               },
               {
-                "Sid": "Stmt1458250681000",
-           	    "Effect": "Allow",
-                "Action": [
-                  "cloudformation:DescribeStacks"
-                ],
-                "Resource": [
-                  "*"
-                ]
-        	  },
-              {
                 "Sid": "Stmt1458242658000",
                 "Effect": "Allow",
                 "Action": [
