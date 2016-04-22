@@ -6,6 +6,8 @@ import com.amazonaws.services.lambda.runtime.Context;
  * Class to serve as handler for an AWS Lambda function. Expects JSON payload in the form of:
  * {
  *   "listId": "this-is-a-list-id"
+ *   
+ *   Adding a test comment here. Another comment. Another one.
  * }
  */
 public class GetShoppingListHandler {

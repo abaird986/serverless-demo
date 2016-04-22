@@ -41,7 +41,7 @@
 	angular.module('shoppingListApp', [])
       .controller('NewShoppingListController', ['$scope', '$location', '$http', function($scope, $location, $http) {
     	
-    	var endpoint = "[https://[INSERT_API_ENDPOINT_HERE]/[INSERT_STAGE_HERE]";
+    	var endpoint = "https://tp8cumbg5c.execute-api.us-east-1.amazonaws.com/dev";
 
     	$scope.addItem = function(shoppingListRequest) {
     		var listItem = { "item": shoppingListRequest.item }
